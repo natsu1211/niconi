@@ -13,6 +13,20 @@
 		<script src="js/ABPLibxml.js"></script>
 		<script src="js/ABPlayer.js"></script>
 		<script src="js/ColPick.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            function getUrl(){
+                var id = document.getElementById("video-id").value
+                var API_URL = "http://flapi.nicovideo.jp/api/getflv/";
+                req = new XMLHttpRequest();
+                req.open("GET", API_URL + id, true);
+                req.withCredentials = true;
+                req.send(null);
+                var response_data = req.responseText;
+                alert(response_data);
+                return response_data;
+                
+            }
+        </script>
 		<script type="text/javascript">
 			window.addEventListener("load",function(){
 				var inst = ABP.create(document.getElementById("player1"), {
@@ -37,10 +51,10 @@
         </section>
         <form>
             Nico Video ID：
-            <input type="text" name="input" id="video-id">
+            <input id="video-id" type="text" name="input" >
         </form>
         <div>
-            <input type="button" name="input-button" value="Confirm" onclick="getVideoUrl(id)">
+            <input type="button" name="input-button" value="Confirm" onclick="getUrl()">
         </div> 
         <br/>
 		<div id="player1">
