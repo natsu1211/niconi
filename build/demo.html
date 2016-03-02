@@ -15,16 +15,16 @@
 		<script src="js/ColPick.js"></script>
         <script type="text/javascript" charset="utf-8">
             function getUrl(){
-                var id = document.getElementById("video-id").value
+                var id = document.getElementById("video-id").value;
                 var API_URL = "http://cors.io/?u=http://flapi.nicovideo.jp/api/getflv/";
-                req = new XMLHttpRequest();
-                req.open("GET", API_URL + id, true);
-                //req.withCredentials = true;
-                req.send(null);
-                var response_data = req.responseText;
+                var xhr = createCORSRequest('Get', API_URL + id);
+                if(!xhr){
+                    alert('CORS not supported');
+                    return;
+                }
+                xhr.send();
+                var response_data = xhr.responseText;
                 alert(response_data);
-                return response_data;
-                
             }
         </script>
 		<script type="text/javascript">
