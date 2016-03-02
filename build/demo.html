@@ -17,7 +17,7 @@
             function getUrl(){
                 var id = document.getElementById("video-id").value;
                 var API_URL = "http://cors.io/?u=http://flapi.nicovideo.jp/api/getflv/";
-                var xhr = createCORSRequest('Get', API_URL + id);
+                var xhr = createCORSRequest('GET', API_URL + id);
                 if(!xhr){
                     alert('CORS not supported');
                     return;
