@@ -1,7 +1,7 @@
 var loginNico = function(mail, pwd){
     var LOGIN_URL = "http://cors.io/?u=https://secure.nicovideo.jp/secure/login?site=niconico";
     var xhr = new XMLHttpRequest();
-    xhr.open("POST","LOGIN_URL",true, mail, pwd);
+    xhr.open("POST", LOGIN_URL, true, mail, pwd);
     var fd = new FormData();
     // fd.append(MAIL,PWD);
     xhr.onload = function() {
