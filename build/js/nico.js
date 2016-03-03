@@ -1,16 +1,48 @@
 var loginNico = function(mail, pwd){
-    var LOGIN_URL = "secure.nicovideo.jp/secure/login?site=niconico"
-    var body = "mail"
+    var LOGIN_URL = "http://cors.io/?u=https://secure.nicovideo.jp/secure/login?site=niconico";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST","LOGIN_URL",true, mail, pwd);
+    var fd = new FormData();
+    // fd.append(MAIL,PWD);
+    xhr.onload = function() {
+        alert('data sent and response loaded' );
+    };
+
+    xhr.onerror = function() {
+        alert('Woops, there was an error making the request.');
+    };
+    xhr.send();
+    var resp = xhr.response;
+    var cookies = resp.headers['set-cookie'];
+    var cookie = '';
+    for (var c in cookies){
+        if (c.indexOf(user_session_) > -1){
+            cookie = c;
+            break;
+        }
+    }
+    if (c == ''){
+        alert("Cannot get login in session");
+    }
+
+
+
 }
 
 var getVideoUrl = function(id){
-    //var videoIdText = window.document.getElementById("video_id");
-    var API_URL = "http://flapi.nicovideo.jp/api/getflv/";
-    req = new XMLHttpRequest();
-    req.open("GET", API_URL + id, true);
-    req.withCredentials = true;
-    req.send(null);
-    var response_data = req.responseText;
-    alert(response_data);
-    return response_data;
+    var API_URL = "http://cors.io/?u=http://flapi.nicovideo.jp/api/getflv/";
+    var xhr = createCORSRequest('GET', API_URL + id);
+    if(!xhr){
+        alert('CORS not supported');
+        return;
+    }
+    xhr.onload = function() {
+        var text = xhr.responseText;
+        alert('Response from CORS request ' + text);
+    };
+
+    xhr.onerror = function() {
+        alert('Woops, there was an error making the request.');
+    };
+    xhr.send();
 }

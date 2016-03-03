@@ -16,15 +16,11 @@
         <script type="text/javascript" charset="utf-8">
             function getUrl(){
                 var id = document.getElementById("video-id").value;
-                var API_URL = "http://cors.io/?u=http://flapi.nicovideo.jp/api/getflv/";
-                var xhr = createCORSRequest('GET', API_URL + id);
-                if(!xhr){
-                    alert('CORS not supported');
-                    return;
-                }
-                xhr.send();
-                var response_data = xhr.responseText;
-                alert(response_data);
+                var usr = document.getElementById("usr-name").value;
+                var pwd = document.getElementById("password").value;
+                loginNico(usr, pwd);
+                getVideoUrl(id);
+
             }
         </script>
 		<script type="text/javascript">
@@ -52,14 +48,18 @@
         <form>
             Nico Video ID：
             <input id="video-id" type="text" name="input" >
-        </form>
-        <div>
+            <br/>
+            User Name:
+            <input id="usr-name" type="text" name="input" >
+            <br />
+            Password:
+            <input id="password" type="password" name="input" >
+            <br />
             <input type="button" name="input-button" value="Confirm" onclick="getUrl()">
-        </div> 
+        </form>
         <br/>
 		<div id="player1">
 			<video id="video-1" autobuffer="true" data-setup="{}">
-				<source src="http://7xl73j.dl1.z0.glb.clouddn.com/ccltestingvideos/outer_science.mp4" type="video/mp4">
 				<source src="http://static.cdn.moe/ccltestingvideos/outer_science.webm" type="video/webm">
 				<p>Your browser does not support html5 video!</p>
 			</video>
