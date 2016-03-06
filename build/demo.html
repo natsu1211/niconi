@@ -4,6 +4,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" href="css/base.css" />
 		<link rel="stylesheet" href="css/colpick.css" />
+        <link rel="stylesheet" href="css/normalize.css" media="screen">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/stylesheet.css" media="screen">
+        <link rel="stylesheet" href="css/github-light.css" media="screen">
 		<title>Niconi Player</title>
 		<script src="js/jquery.min.js"></script>
         <!-- <script src="http://malsup.github.com/jquery.form.js"></script> -->
@@ -39,7 +43,7 @@
                 }
                 var downloadUrl = query_map["url"];
                 //alert(downloadUrl);
-                document.getElementById("flash-player").innerHTML = '<a href='+downloadUrl+'>'+ downloadUrl+ '<'+'/a>' +
+                document.getElementById("flash-player").innerHTML = 'Download URL: ' + '<a href='+downloadUrl+'>'+ downloadUrl+ '<'+'/a>' +
                 '<br/>'+
                 '<embed id="MukioPlayer" ' +
                 'src="MukioPlayerPlus.swf" '+
@@ -84,7 +88,7 @@
 	<body>
         <section class="page-header">
             <h1 class="project-name">Niconi </h1>
-            <h2 class="project-tagline">Play online videos you like!</h2>
+            <h2 class="project-tagline">Play online videos and comments you like!</h2>
         </section>
 
         <section class="demo-content">
@@ -120,7 +124,7 @@
             <br />
             <input type="submit"  value="Submit">
             <br/>
-            Nico Video ID：
+            Nico Video ID (e.g. sm9)：
             <input id="video-id" type="text" name="input" >
             <br/>
             <input type="button" name="input-button" value="Confirm" onclick="getResponse()">
