@@ -48,5 +48,6 @@ var getVideoUrl = function(id){
 }
 
 var getVideoUrl2 = function(id){
-    window.open( "http://flapi.nicovideo.jp/api/getflv/" + id);
+    window.open( "http://www.nicovideo.jp/watch/" + id, "_blank");
+    window.open( "http://flapi.nicovideo.jp/api/getflv/" + id, "_blank");
 }
