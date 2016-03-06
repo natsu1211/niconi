@@ -1,7 +1,7 @@
 var loginNico = function(mail, pwd){
     var LOGIN_URL = "http://cors.io/?u=https://secure.nicovideo.jp/secure/login?site=niconico";
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", LOGIN_URL, true, mail, pwd);
+    xhr.open("POST",LOGIN_URL,true, mail, pwd);
     var fd = new FormData();
     // fd.append(MAIL,PWD);
     xhr.onload = function() {
@@ -45,4 +45,8 @@ var getVideoUrl = function(id){
         alert('Woops, there was an error making the request.');
     };
     xhr.send();
+}
+
+var getVideoUrl2 = function(id){
+    window.open( "http://flapi.nicovideo.jp/api/getflv/" + id);
 }
