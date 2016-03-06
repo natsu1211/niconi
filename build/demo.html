@@ -24,7 +24,11 @@
                 //var usr = document.getElementById("usr-name").value;
                // var pwd = document.getElementById("password").value;
                 //loginNico(usr, pwd);
-                getVideoUrl2(id);
+                //getVideoUrl2(id);
+                //call directly in callback to avoid blocking of brower
+                window.open( "http://www.nicovideo.jp/watch/" + id, "_blank");
+                window.open( "http://flapi.nicovideo.jp/api/getflv/" + id, "_blank");
+                
 
             }
         </script>
